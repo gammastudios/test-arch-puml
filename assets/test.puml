@@ -1,0 +1,33 @@
+@startuml
+
+!define C4Puml https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master
+!define GCPPuml https://raw.githubusercontent.com/gamma-data/GCP-C4-PlantUML/master/templates
+!define AzurePuml https://raw.githubusercontent.com/RicardoNiepel/Azure-PlantUML/master/dist
+
+!includeurl C4Puml/C4_Context.puml
+!includeurl C4Puml/C4_Component.puml
+!includeurl C4Puml/C4_Container.puml
+
+!includeurl AzurePuml/AzureCommon.puml
+!includeurl AzurePuml/DevOps/all.puml
+!includeurl AzurePuml/Containers/AzureKubernetesService.puml
+!includeurl AzurePuml/Containers/AzureContainerRegistry.puml
+!includeurl AzurePuml/Management/AzureResourceGroups.puml
+!includeurl AzurePuml/Compute/AzureServiceFabric.puml
+!includeurl AzurePuml/Databases/AzureCosmosDb.puml
+!includeurl AzurePuml/Security/AzureKeyVault.puml
+!includeurl AzurePuml/Identity/AzureActiveDirectory.puml
+!includeurl AzurePuml/Management/AzureMonitor.puml
+!includeurl AzurePuml/DevOps/AzureBoards.puml
+
+!define Rel_Future(e_from,e_to, e_label) Rel_(e_from,e_to, e_label, "..>")
+!define Rel_Future(e_from,e_to, e_label, e_techn) Rel_(e_from,e_to, e_label, e_techn, "..>")
+
+Boundary(devloop, "Development Loop"){
+    AzureRepos(ghrepo1, "Github Repo", "(service 1")
+    AzureDevOps(vscode1, "Visual Studio Code", "ide")
+    AzureLabServices(gha1, "Github Actions", "gha")
+    AzureBoards(boards1, "Github Issues", "tickets")
+}
+
+@enduml
