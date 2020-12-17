@@ -33,5 +33,5 @@ jobs:
         uses: frederikheld/render-plantuml-to-wiki-action@v1.0.1
         with:
           WIKI_TOKEN: ${{ secrets.WIKI_TOKEN }}
-          INPUT_DIR: 'test-arch-puml/assets'
-          OUTPUT_DIR: 'test-arch-puml/assets'
+          INPUT_DIR: '/github/workspace/test-arch-puml/assets'
+          OUTPUT_DIR: '/github/workspace/test-arch-puml/assets'
